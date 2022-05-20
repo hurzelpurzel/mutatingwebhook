@@ -20,7 +20,7 @@ jobs:
         tags: latest ${{ github.sha }}
         context: ./sourcecode
         containerfiles: |
-          ./Dockerfile
+          ./sourcecode/Dockerfile
 
     - name: Log in to the GitHub Container registry
       uses: redhat-actions/podman-login@v1
