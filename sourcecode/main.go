@@ -90,7 +90,7 @@ func main() {
 	}
 	clientSet = cs
 
-	test()
+	
 	http.HandleFunc("/", HandleRoot)
 	http.HandleFunc("/mutate", HandleMutate)
 	log.Fatal(http.ListenAndServeTLS(":"+strconv.Itoa(parameters.port), parameters.certFile, parameters.keyFile, nil))

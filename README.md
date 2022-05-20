@@ -7,7 +7,7 @@ Originated by "ThatDevOpsGuy"
 
 ## Next steps:
 
-- create a helm chart to install it
-- create a pipeline to build the container
-- disable test step
+- create a helm chart to install it : Ongoing
+- create a pipeline to build the container:Done
+- disable test step: Done
 - change purpose
