@@ -10,7 +10,7 @@ COPY . /app/
 
 RUN CGO_ENABLED=0 go build -o /webhook
 
-FROM alpine:3.10 as runtime
+FROM registry.access.redhat.com/ubi8/ubi-micro as runtime
 
 COPY --from=build-env /webhook /usr/local/bin/webhook
 RUN chmod +x /usr/local/bin/webhook
