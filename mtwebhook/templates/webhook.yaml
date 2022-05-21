@@ -3,7 +3,7 @@ kind: MutatingWebhookConfiguration
 metadata:
   name: {{.Values.appName }}
 webhooks:
-  - name: example-webhook.default.svc.cluster.local
+  - name: {{- include "mtwebhook.fqsvc"  . -}}.svc.cluster.local
     admissionReviewVersions:
       - "v1beta1"
     sideEffects: "None"
@@ -17,7 +17,7 @@ webhooks:
         namespace: {{ .Release.Namespace }}
         path: "/mutate"
       caBundle: |
-        {{ include "mtwebhook.lookup-ca" . }}
+        {{ "TODO: find a way to place the generated cert here" | b64enc }}
     rules:
       - operations: [ "CREATE" ]
         apiGroups: [""]
