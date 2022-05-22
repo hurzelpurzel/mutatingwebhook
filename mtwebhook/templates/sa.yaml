@@ -3,3 +3,7 @@ kind: ServiceAccount
 metadata:
   name: {{ .Values.appName }}
   namespace: {{ .Release.Namespace }}
+{{ if .Values.image.pullsecret }}
+imagePullSecrets:
+- name:  {{  .Values.image.pullsecret }}
+{{ end }}

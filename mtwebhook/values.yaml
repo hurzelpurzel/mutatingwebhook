@@ -4,4 +4,4 @@ image:
   repo: ghcr.io/hurzelpurzel
   name:  mutatingwebhook
   tag: latest
-
+  pullsecret: regcred
