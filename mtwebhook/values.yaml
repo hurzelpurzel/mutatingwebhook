@@ -1,4 +1,4 @@
-appName: mutatingwebhook
+appName: mtwebhook
 certSecretName: gencert # cert secret that must be there before
 image: 
   repo: ghcr.io/hurzelpurzel
