@@ -16,8 +16,7 @@ webhooks:
         name: {{.Values.appName }}
         namespace: {{ .Release.Namespace }}
         path: "/mutate"
-      caBundle: |
-        {{ ( lookup "v1" "Secret" .Release.Namespace (include "mtwebhook.secretname" .)).data.ca | b64enc }}
+      caBundle:  {{ ( lookup "v1" "Secret" .Release.Namespace .Values.certSecretName ).data.ca | quote }}    
     rules:
       - operations: [ "CREATE" ]
         apiGroups: [""]

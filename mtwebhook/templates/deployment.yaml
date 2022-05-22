@@ -18,7 +18,7 @@ spec:
       serviceAccountName: {{ .Values.appName }}
       containers:
       - name: server
-        image: {{ .Values.image.repo }}/{{ .Values.image.repo }}:{{ .Values.image.tag }}
+        image: {{ .Values.image.repo }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
         ports:
         - containerPort: 8443
@@ -32,4 +32,4 @@ spec:
       volumes:
       - name: webhook-tls-certs
         secret:
-          secretName: {{ include "mtwebhook.secretname" . }}
+          secretName: {{ .Values.certSecretName }}
