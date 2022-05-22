@@ -30,6 +30,8 @@ see: https://medium.com/nuvo-group-tech/move-your-certs-to-helm-4f5f61338aca
 {{- $altNames := list ( include "mtwebhook.fqsvc" . ) ( printf "%s.svc" (include "mtwebhook.fqsvc" .) ) -}}
 {{- $ca := genCA "mtwebhook-ca" 365 -}}
 {{- $cert := genSignedCert ( include "mtwebhook.name" . ) nil $altNames 365 $ca -}}
+{{/* set $.Values "ca" $cert.Cert */}}
 tls.crt: {{ $cert.Cert | b64enc }}
 tls.key: {{ $cert.Key | b64enc }}
+ca: {{ $ca.Cert | b64enc }}
 {{- end -}}
